@@ -1,0 +1,45 @@
+%h1 Listing cards
+
+%table
+  %thead
+    %tr
+      %th Code
+      %th Cost
+      %th Name
+      %th Card class
+      %th Card set
+      %th Card type
+      %th Race
+      %th Rarity
+      %th Collectible
+      %th Card text
+      %th Attack
+      %th Health
+      %th Durability
+      %th
+      %th
+      %th
+
+  %tbody
+    - @cards.each do |card|
+      %tr
+        %td= card.code
+        %td= card.cost
+        %td= card.name
+        %td= card.card_class
+        %td= card.card_set
+        %td= card.card_type
+        %td= card.race
+        %td= card.rarity
+        %td= card.collectible
+        %td= card.card_text
+        %td= card.attack
+        %td= card.health
+        %td= card.durability
+        %td= link_to 'Show', card
+        %td= link_to 'Edit', edit_card_path(card)
+        %td= link_to 'Destroy', card, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Card', new_card_path

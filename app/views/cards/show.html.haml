@@ -1,0 +1,45 @@
+%p#notice= notice
+
+%p
+  %b Code:
+  = @card.code
+%p
+  %b Cost:
+  = @card.cost
+%p
+  %b Name:
+  = @card.name
+%p
+  %b Card class:
+  = @card.card_class
+%p
+  %b Card set:
+  = @card.card_set
+%p
+  %b Card type:
+  = @card.card_type
+%p
+  %b Race:
+  = @card.race
+%p
+  %b Rarity:
+  = @card.rarity
+%p
+  %b Collectible:
+  = @card.collectible
+%p
+  %b Card text:
+  = @card.card_text
+%p
+  %b Attack:
+  = @card.attack
+%p
+  %b Health:
+  = @card.health
+%p
+  %b Durability:
+  = @card.durability
+
+= link_to 'Edit', edit_card_path(@card)
+\|
+= link_to 'Back', cards_path
