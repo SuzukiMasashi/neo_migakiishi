@@ -32,6 +32,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# [HTML Parsing](https://www.ruby-toolbox.com/categories/html_parsing)
+gem 'nokogiri'
+
 # [Template Engines](https://www.ruby-toolbox.com/categories/template_engines)
 gem 'haml-rails'
 

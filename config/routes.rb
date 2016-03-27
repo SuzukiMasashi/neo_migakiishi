@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :cards
+    resources :versions do
+      resources :cards
+    end
+
+    namespace :cards do
+      resources :import_jobs
+    end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

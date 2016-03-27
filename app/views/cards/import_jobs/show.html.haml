@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Version:
+  = @cards_import_job.version.name
+%p
+  %b Status:
+  = @cards_import_job.status
+
+= link_to 'Edit', edit_cards_import_job_path(@cards_import_job)
+\|
+= link_to 'Back', cards_import_jobs_path

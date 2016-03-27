@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160324085953) do
+ActiveRecord::Schema.define(version: 20160325140539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cards", force: :cascade do |t|
+    t.integer  "version_id"
     t.string   "code"
     t.integer  "cost"
     t.string   "name"
@@ -34,6 +35,24 @@ ActiveRecord::Schema.define(version: 20160324085953) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "cards", ["code"], name: "index_cards_on_code", unique: true, using: :btree
+  add_index "cards", ["version_id", "code"], name: "index_cards_on_version_id_and_code", unique: true, using: :btree
+  add_index "cards", ["version_id"], name: "index_cards_on_version_id", using: :btree
 
+  create_table "cards_import_jobs", force: :cascade do |t|
+    t.integer  "version_id"
+    t.integer  "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "cards_import_jobs", ["version_id"], name: "index_cards_import_jobs_on_version_id", using: :btree
+
+  create_table "versions", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "cards", "versions"
+  add_foreign_key "cards_import_jobs", "versions"
 end

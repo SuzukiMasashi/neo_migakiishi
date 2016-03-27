@@ -1,0 +1,8 @@
+= simple_form_for(@cards_import_job) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :version
+
+  .form-actions
+    = f.button :submit
