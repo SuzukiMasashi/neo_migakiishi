@@ -53,7 +53,7 @@ class VersionExtractionService
   end
 
   def latest_alias_name
-    "#{ENV['API_VERSION_LATEST_DIR']}".tr("/", "")
+    ENV['API_VERSION_LATEST_DIR'].try(:tr, *["/", ""]) or raise ArgumentError
   end
 
   def latest_version_datetime

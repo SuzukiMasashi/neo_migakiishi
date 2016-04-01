@@ -36,10 +36,3 @@
         %td= card.attack
         %td= card.health
         %td= card.durability
-        %td= link_to 'Show', version_card_path(card.version, card)
-        %td= link_to 'Edit', edit_version_card_path(card.version, card)
-        %td= link_to 'Destroy', version_card_path(card.version, card), :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Card', new_version_card_path(card)

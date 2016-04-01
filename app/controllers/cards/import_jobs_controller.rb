@@ -4,13 +4,13 @@ class Cards::ImportJobsController < ApplicationController
   # GET /cards/import_jobs
   # GET /cards/import_jobs.json
   def index
-    @cards_import_jobs = Cards::ImportJob.all
+    @cards_import_jobs = Cards::ImportJob.includes(:version)
   end
 
   # GET /cards/import_jobs/1
   # GET /cards/import_jobs/1.json
-  def show
-  end
+  # def show
+  # end
 
   # GET /cards/import_jobs/new
   def new
@@ -26,8 +26,8 @@ class Cards::ImportJobsController < ApplicationController
   end
 
   # GET /cards/import_jobs/1/edit
-  def edit
-  end
+  # def edit
+  # end
 
   # POST /cards/import_jobs
   # POST /cards/import_jobs.json
@@ -40,7 +40,7 @@ class Cards::ImportJobsController < ApplicationController
 
     respond_to do |format|
       if @cards_import_job.save
-        format.html { redirect_to @cards_import_job, notice: 'Import job was successfully created.' }
+        format.html { redirect_to version_cards_url(@cards_import_job.version), notice: 'Import job was successfully created.' }
         format.json { render :show, status: :created, location: @cards_import_job }
       else
         format.html { render :new }
@@ -51,17 +51,17 @@ class Cards::ImportJobsController < ApplicationController
 
   # PATCH/PUT /cards/import_jobs/1
   # PATCH/PUT /cards/import_jobs/1.json
-  def update
-    respond_to do |format|
-      if @cards_import_job.update(cards_import_job_params)
-        format.html { redirect_to @cards_import_job, notice: 'Import job was successfully updated.' }
-        format.json { render :show, status: :ok, location: @cards_import_job }
-      else
-        format.html { render :edit }
-        format.json { render json: @cards_import_job.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   respond_to do |format|
+  #     if @cards_import_job.update(cards_import_job_params)
+  #       format.html { redirect_to @cards_import_job, notice: 'Import job was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @cards_import_job }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @cards_import_job.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /cards/import_jobs/1
   # DELETE /cards/import_jobs/1.json
