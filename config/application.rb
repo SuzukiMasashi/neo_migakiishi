@@ -24,6 +24,7 @@ module Migakiishi
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
+     config.time_zone = 'Tokyo'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
@@ -35,5 +36,26 @@ module Migakiishi
     #
     config.autoload_paths += %W(#{config.root}/app/enumerations)
     config.autoload_paths += %W(#{config.root}/app/services)
+
+    config.after_initialize do
+      Bullet.enable = true
+      Bullet.alert = true
+      Bullet.bullet_logger = true
+      Bullet.console = true
+      # Bullet.growl = true
+      # Bullet.xmpp = { :account  => 'bullets_account@jabber.org',
+      #                 :password => 'bullets_password_for_jabber',
+      #                 :receiver => 'your_account@jabber.org',
+      #                 :show_online_status => true }
+      Bullet.rails_logger = true
+      # Bullet.honeybadger = true
+      # Bullet.bugsnag = true
+      # Bullet.airbrake = true
+      # Bullet.rollbar = true
+      Bullet.add_footer = true
+      # Bullet.stacktrace_includes = [ 'your_gem', 'your_middleware' ]
+      # Bullet.stacktrace_excludes = [ 'their_gem', 'their_middleware' ]
+      # Bullet.slack = { webhook_url: 'http://some.slack.url', foo: 'bar' }
+    end
   end
 end
