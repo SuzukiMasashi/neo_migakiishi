@@ -80,3 +80,8 @@ group :development do
   # [Rails Instrumentation](https://www.ruby-toolbox.com/categories/rails_instrumentation)
   gem 'bullet'
 end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'rails_stdout_logging'
+end
