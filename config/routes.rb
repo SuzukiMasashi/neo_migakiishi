@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-    resources :versions, only: %i(index destroy) do
-      resources :cards, only: %i(index)
-    end
+  resources :versions, only: %i(index destroy) do
+    resources :cards, only: %i(index)
+  end
 
-    namespace :cards do
-      resources :import_jobs, only: %i(index new create destroy)
-    end
+  namespace :cards do
+    resources :import_jobs, only: %i(index new create destroy)
+  end
+
+  root to: 'cards#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
