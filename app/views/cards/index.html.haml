@@ -1,42 +1,41 @@
 - model_class = Card
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
-%table.table.table-striped
-  %thead
-    %tr
-      %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:version_id)
-      %th= model_class.human_attribute_name(:code)
-      %th= model_class.human_attribute_name(:cost)
-      %th= model_class.human_attribute_name(:name)
-      %th= model_class.human_attribute_name(:card_class)
-      %th= model_class.human_attribute_name(:card_set)
-      %th= model_class.human_attribute_name(:card_type)
-      %th= model_class.human_attribute_name(:race)
-      %th= model_class.human_attribute_name(:rarity)
-      %th= model_class.human_attribute_name(:collectible)
-      %th= model_class.human_attribute_name(:card_text)
-      %th= model_class.human_attribute_name(:attack)
-      %th= model_class.human_attribute_name(:health)
-      %th= model_class.human_attribute_name(:durability)
-      %th= model_class.human_attribute_name(:created_at)
-      %th=t '.actions', :default => t("helpers.actions")
-  %tbody
-    - @cards.each do |card|
+
+.table-responsive
+  %table.table.table-reflow.table-striped
+    %thead
       %tr
-        %td= card.id
-        %td= card.version_id
-        %td= card.code
-        %td= card.cost
-        %td= card.name
-        %td= card.card_class
-        %td= card.card_set
-        %td= card.card_type
-        %td= card.race
-        %td= card.rarity
-        %td= card.collectible
-        %td= card.card_text
-        %td= card.attack
-        %td= card.health
-        %td= card.durability
-        %td=l card.created_at
+        / %th= model_class.human_attribute_name(:id)
+        / %th= model_class.human_attribute_name(:version_id)
+        / %th= model_class.human_attribute_name(:code)
+        %th= model_class.human_attribute_name(:card_set)
+        %th= model_class.human_attribute_name(:card_class)
+        %th= model_class.human_attribute_name(:rarity)
+        %th= model_class.human_attribute_name(:cost)
+        %th= model_class.human_attribute_name(:name)
+        %th= model_class.human_attribute_name(:card_text)
+        %th= model_class.human_attribute_name(:attack)
+        %th= model_class.human_attribute_name(:health)
+        %th= model_class.human_attribute_name(:durability)
+        %th= model_class.human_attribute_name(:card_type)
+        %th= model_class.human_attribute_name(:race)
+        / %th= model_class.human_attribute_name(:collectible)
+    %tbody
+      - @cards.each do |card|
+        %tr
+          / %td= card.id
+          / %td= card.version_id
+          / %td= card.code
+          %td= card.card_set
+          %td= card.card_class
+          %td= card.rarity
+          %td= card.cost
+          %td= card.name
+          %td!= card.card_text
+          %td= card.attack
+          %td= card.health
+          %td= card.durability
+          %td= card.card_type
+          %td= card.race
+          / %td= card.collectible

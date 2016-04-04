@@ -5,7 +5,7 @@ class VersionsController < ApplicationController
   # GET /versions
   # GET /versions.json
   def index
-    @versions = Version.includes(:cards).joins(:cards)
+    @versions = Version.includes(:cards).joins(:cards).order(%i(card_set card_class rarity cost))
   end
 
   # GET /versions/1

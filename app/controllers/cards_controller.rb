@@ -4,7 +4,8 @@ class CardsController < ApplicationController
   # GET /cards
   # GET /cards.json
   def index
-    @cards = Card.all
+    @cards =  Card.without_card_type('HERO')
+                .order(%i(card_set card_class rarity cost name))
   end
 
   # GET /cards/1
