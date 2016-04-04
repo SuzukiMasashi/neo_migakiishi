@@ -1,7 +1,4 @@
-%h1 Editing cards_import_job
-
-= render 'form'
-
-= link_to 'Show', @cards_import_job
-\|
-= link_to 'Back', cards_import_jobs_path
+- model_class = ImportJob
+.page-header
+  %h1=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize
+= render :partial => "form"

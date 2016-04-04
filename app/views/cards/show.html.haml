@@ -1,45 +1,65 @@
-%p#notice= notice
+- model_class = Card
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
 
 %p
-  %b Code:
+  %strong= model_class.human_attribute_name(:version_id) + ':'
+  %br
+  = @card.version_id
+%p
+  %strong= model_class.human_attribute_name(:code) + ':'
+  %br
   = @card.code
 %p
-  %b Cost:
+  %strong= model_class.human_attribute_name(:cost) + ':'
+  %br
   = @card.cost
 %p
-  %b Name:
+  %strong= model_class.human_attribute_name(:name) + ':'
+  %br
   = @card.name
 %p
-  %b Card class:
+  %strong= model_class.human_attribute_name(:card_class) + ':'
+  %br
   = @card.card_class
 %p
-  %b Card set:
+  %strong= model_class.human_attribute_name(:card_set) + ':'
+  %br
   = @card.card_set
 %p
-  %b Card type:
+  %strong= model_class.human_attribute_name(:card_type) + ':'
+  %br
   = @card.card_type
 %p
-  %b Race:
+  %strong= model_class.human_attribute_name(:race) + ':'
+  %br
   = @card.race
 %p
-  %b Rarity:
+  %strong= model_class.human_attribute_name(:rarity) + ':'
+  %br
   = @card.rarity
 %p
-  %b Collectible:
+  %strong= model_class.human_attribute_name(:collectible) + ':'
+  %br
   = @card.collectible
 %p
-  %b Card text:
+  %strong= model_class.human_attribute_name(:card_text) + ':'
+  %br
   = @card.card_text
 %p
-  %b Attack:
+  %strong= model_class.human_attribute_name(:attack) + ':'
+  %br
   = @card.attack
 %p
-  %b Health:
+  %strong= model_class.human_attribute_name(:health) + ':'
+  %br
   = @card.health
 %p
-  %b Durability:
+  %strong= model_class.human_attribute_name(:durability) + ':'
+  %br
   = @card.durability
 
-= link_to 'Edit', edit_card_path(@card)
-\|
-= link_to 'Back', cards_path
+
+= link_to t('.back', :default => t("helpers.links.back")), cards_path, :class => 'btn btn-default'
+= link_to t('.edit', :default => t("helpers.links.edit")), edit_card_path(@card), :class => 'btn btn-default'
+= link_to t('.destroy', :default => t("helpers.links.destroy")), card_path(@card), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

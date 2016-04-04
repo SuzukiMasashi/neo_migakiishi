@@ -1,8 +1,7 @@
-= simple_form_for(@cards_import_job) do |f|
-  = f.error_notification
-
-  .form-inputs
-    = f.association :version
-
-  .form-actions
-    = f.button :submit
+= simple_form_for @cards_import_job, :html => { :class => 'form-horizontal' } do |f|
+  = f.association :version
+  = f.error_span :version
+  = f.input :status
+  = f.error_span :status
+  = f.button :submit, :class => 'btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), cards_import_jobs_path, :class => 'btn btn-default'

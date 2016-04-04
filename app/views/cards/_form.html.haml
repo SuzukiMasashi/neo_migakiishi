@@ -1,20 +1,31 @@
-= simple_form_for(@card) do |f|
-  = f.error_notification
-
-  .form-inputs
-    = f.input :code
-    = f.input :cost
-    = f.input :name
-    = f.input :card_class
-    = f.input :card_set
-    = f.input :card_type
-    = f.input :race
-    = f.input :rarity
-    = f.input :collectible
-    = f.input :card_text
-    = f.input :attack
-    = f.input :health
-    = f.input :durability
-
-  .form-actions
-    = f.button :submit
+= simple_form_for @card, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :version_id
+  = f.error_span :version_id
+  = f.input :code
+  = f.error_span :code
+  = f.input :cost
+  = f.error_span :cost
+  = f.input :name
+  = f.error_span :name
+  = f.input :card_class
+  = f.error_span :card_class
+  = f.input :card_set
+  = f.error_span :card_set
+  = f.input :card_type
+  = f.error_span :card_type
+  = f.input :race
+  = f.error_span :race
+  = f.input :rarity
+  = f.error_span :rarity
+  = f.input :collectible
+  = f.error_span :collectible
+  = f.input :card_text
+  = f.error_span :card_text
+  = f.input :attack
+  = f.error_span :attack
+  = f.input :health
+  = f.error_span :health
+  = f.input :durability
+  = f.error_span :durability
+  = f.button :submit, :class => 'btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), cards_path, :class => 'btn btn-default'

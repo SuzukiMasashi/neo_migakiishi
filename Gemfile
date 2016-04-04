@@ -45,8 +45,9 @@ gem 'coffee-script'
 gem 'enumerize'
 
 # [CSS with Ruby](https://www.ruby-toolbox.com/categories/css_with_ruby)
-gem 'bootstrap-sass'
-gem 'font-awesome-sass'
+gem 'therubyracer'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
 
 # [Rails Form Builders](https://www.ruby-toolbox.com/categories/rails_form_builders)
 gem 'simple_form'
